@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qql7qwssfusr"]
+
+[ext_resource type="Texture2D" uid="uid://bxsaqipj16hvd" path="res://sprites/projectiles/shot1_asset.png" id="1_csaou"]
+
+[node name="Node2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_csaou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
