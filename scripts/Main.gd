@@ -8,6 +8,8 @@ extends Node2D
 func _ready():
 	connect_signals()
 	print("Start!")
+	GlobalGameManager.load_scores()
+	GlobalGameManager.print_scores()
 
 func connect_signals():
 	if player_ship and projectile_manager:

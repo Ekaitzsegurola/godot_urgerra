@@ -3,6 +3,7 @@ extends Node
 signal score_changed(new_score)
 signal lives_changed(new_lives)
 signal level_changed(new_level)
+signal play_finished(win_lose)
 
 var score = 0
 var lives = 3
@@ -47,9 +48,15 @@ func next_level():
 		load_level(current_level)
 
 func game_over():
+	play_finished.emit(0)
 	print("Game Over!")
 	# Here you would show the game over screen and handle restarting
 
 func game_won():
+	play_finished.emit(1)
 	print("Congratulations! You've completed all levels!")
 	# Here you would show the victory screen
+
+func _on_replay_button_button_down():
+	GlobalGameManager.save_score(score)
+	GlobalGameManager.reload_scene()

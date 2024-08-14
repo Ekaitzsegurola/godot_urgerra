@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5hgu8miuosw1"]
+[gd_scene load_steps=21 format=3 uid="uid://c5hgu8miuosw1"]
 
 [ext_resource type="Texture2D" uid="uid://dxknqjnomrrsd" path="res://sprites/background/spaceBackground.png" id="1_nr4qn"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_sn0oe"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c2rm7d33qgc8x" path="res://scenes/TouchControls.tscn" id="11_qhn0b"]
 [ext_resource type="AudioStream" uid="uid://4727a1mc6l6u" path="res://audio/GalacticOdyssey.mp3" id="11_sgxqh"]
 [ext_resource type="Script" path="res://scripts/LabelLevel.gd" id="12_j7sm0"]
+[ext_resource type="Texture2D" uid="uid://d2pvjwxtjjodv" path="res://sprites/ui/Table.png" id="13_acq2o"]
+[ext_resource type="Texture2D" uid="uid://bpi3cwwi66n3h" path="res://sprites/ui/Close_BTN.png" id="14_4bolp"]
+[ext_resource type="Texture2D" uid="uid://bcm6yj5se8hse" path="res://sprites/ui/Replay_BTN.png" id="15_df8rh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ax3i"]
 radius = 18.0
@@ -39,8 +42,9 @@ texture = ExtResource("1_nr4qn")
 centered = false
 
 [node name="PlayerShip" type="Area2D" parent="."]
-position = Vector2(620, 523)
+position = Vector2(380, 735)
 script = ExtResource("2_j87uu")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerShip"]
 rotation = 1.5708
@@ -101,6 +105,57 @@ offset_right = 562.0
 offset_bottom = 1011.0
 value = 100.0
 
+[node name="MessagePopup" type="TextureRect" parent="UI"]
+visible = false
+offset_left = 78.0
+offset_top = 314.0
+offset_right = 657.0
+offset_bottom = 606.0
+texture = ExtResource("13_acq2o")
+
+[node name="LabelLose" type="Label" parent="UI/MessagePopup"]
+visible = false
+layout_mode = 0
+offset_left = 106.0
+offset_right = 476.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 36
+text = "YOU LOSE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelWin" type="Label" parent="UI/MessagePopup"]
+visible = false
+layout_mode = 0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 474.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 36
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="UI/MessagePopup"]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 90.0
+offset_right = 499.0
+offset_bottom = 211.0
+texture_normal = ExtResource("14_4bolp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ReplayButton" type="TextureButton" parent="UI/MessagePopup"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 90.0
+offset_right = 230.0
+offset_bottom = 211.0
+texture_normal = ExtResource("15_df8rh")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="TouchControls" parent="." instance=ExtResource("11_qhn0b")]
 
 [node name="GameManager" type="Node" parent="."]
@@ -118,8 +173,10 @@ scale = Vector2(37.9327, -13.75)
 shape = SubResource("RectangleShape2D_wy68i")
 
 [connection signal="timeout" from="PlayerShip/FireRateTimer" to="PlayerShip" method="_on_FireRateTimer_timeout"]
+[connection signal="button_down" from="UI/MessagePopup/ReplayButton" to="GameManager" method="_on_replay_button_button_down"]
 [connection signal="shoot_pressed" from="TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_pressed"]
 [connection signal="shoot_released" from="TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_released"]
 [connection signal="level_changed" from="GameManager" to="UI/LabelLevel" method="_on_game_manager_level_changed"]
 [connection signal="lives_changed" from="GameManager" to="UI" method="_on_game_manager_lives_changed"]
+[connection signal="play_finished" from="GameManager" to="UI" method="_on_game_manager_play_finished"]
 [connection signal="score_changed" from="GameManager" to="UI" method="_on_game_manager_score_changed"]
