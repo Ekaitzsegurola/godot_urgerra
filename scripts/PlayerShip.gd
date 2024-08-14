@@ -1,6 +1,7 @@
 extends Area2D
 
 signal projectile_fired(position)
+signal player_hit
 
 @export var speed = 300
 @export var fire_rate = 0.2
@@ -12,6 +13,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	$FireRateTimer.wait_time = fire_rate
 	$FireRateTimer.one_shot = true
+	add_to_group("player")
 
 func _process(delta):
 	move(delta)
@@ -45,3 +47,11 @@ func fire_projectile():
 
 func _on_FireRateTimer_timeout():
 	can_fire = true
+
+func hit():
+	player_hit.emit()
+	# Add visual effect for player hit here
+	# For example, flash the player sprite
+	$Sprite2D.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	$Sprite2D.modulate = Color.WHITE

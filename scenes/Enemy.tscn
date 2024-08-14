@@ -11,3 +11,5 @@ script = ExtResource("1_xotg7")
 texture = ExtResource("1_v7see")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]

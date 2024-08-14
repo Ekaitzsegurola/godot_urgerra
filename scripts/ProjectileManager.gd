@@ -9,14 +9,18 @@ var enemy_projectiles = []
 func spawn_player_projectile(pos):
 	var projectile = player_projectile_scene.instantiate()
 	projectile.position = pos
+	projectile.direction = Vector2.UP
 	add_child(projectile)
-	player_projectiles.append(projectile)
 
 func spawn_enemy_projectile(pos):
 	var projectile = enemy_projectile_scene.instantiate()
 	projectile.position = pos
+	projectile.direction = Vector2.DOWN
 	add_child(projectile)
-	enemy_projectiles.append(projectile)
+
+func get_projectiles():
+	return get_children()
+
 
 func _process(delta):
 	update_projectiles(player_projectiles)
