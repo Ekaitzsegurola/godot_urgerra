@@ -32,6 +32,13 @@ func _on_shoot_timer_timeout():
 	enemy_shoot.emit(global_position)
 
 func _on_area_entered(area):
-	if area.is_in_group("player_projectiles"):
+ # Check if the area has the entity_type property
+	if "entity_type" in area:
+		# Check if the entering area is a player projectile
+		if area.entity_type == 0:  # 0 represents Player
+			hit()
+			area.queue_free()
+	# Fallback to the group check if entity_type is not available
+	elif area.is_in_group("player_projectiles"):
 		hit()
 		area.queue_free()

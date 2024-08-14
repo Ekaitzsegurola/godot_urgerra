@@ -19,3 +19,6 @@ texture = ExtResource("1_v7see")
 shape = SubResource("CapsuleShape2D_mhv4y")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

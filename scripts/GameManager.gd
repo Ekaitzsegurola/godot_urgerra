@@ -25,6 +25,7 @@ func load_level(level_number):
 	# Here you would load the appropriate level scene
 	# For now, we'll just print a message
 	print("Loading level ", level_number)
+	emit_signal("level_changed", current_level)
 	# You could also adjust difficulty here based on the level number
 
 func increase_score(points):
