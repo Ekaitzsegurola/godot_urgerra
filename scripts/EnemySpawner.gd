@@ -22,3 +22,7 @@ func spawn_enemy():
 	enemy.position.y = -50
 	enemy.enemy_destroyed.connect($"../GameManager".increase_score)
 	add_child(enemy)
+	
+	# Ensure the enemy is in the "enemies" group
+	if not enemy.is_in_group("enemies"):
+		enemy.add_to_group("enemies")

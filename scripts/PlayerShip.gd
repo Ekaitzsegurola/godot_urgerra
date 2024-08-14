@@ -11,7 +11,7 @@ var can_fire = true
 var touch_position = Vector2.ZERO
 var is_touching = false
 
-@onready var ui_layer: CanvasLayer = get_node("/root/Main/TouchControls")
+@onready var ui_layer: CanvasLayer = get_node("/root/Main/UI/TouchControls")
 
 func _ready():
 	screen_size = get_viewport_rect().size
