@@ -19,12 +19,13 @@ script = ExtResource("2_8ny5r")
 scroll_speed = 50
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(0, 648)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(578.5, 319.5)
+position = Vector2(-1, 2)
 scale = Vector2(0.562012, 0.42513)
 texture = ExtResource("1_nr4qn")
+centered = false
 
 [node name="PlayerShip" type="Area2D" parent="."]
 position = Vector2(620, 523)
