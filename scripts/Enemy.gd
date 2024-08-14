@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	position.y += speed * delta
 	
-	if position.y > 800:  # Adjust based on your screen size
+	if position.y > 1080:  # Adjust based on your screen size
 		queue_free()
 
 func hit():

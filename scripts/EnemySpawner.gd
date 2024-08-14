@@ -18,6 +18,7 @@ func _ready():
 func spawn_enemy():
 	var enemy = enemy_scene.instantiate()
 	enemy.position.x = randf_range(0, screen_width)
+	print(enemy.position.x)
 	enemy.position.y = -50
 	enemy.enemy_destroyed.connect($"../GameManager".increase_score)
 	add_child(enemy)

@@ -7,6 +7,7 @@ extends Node2D
 
 func _ready():
 	connect_signals()
+	print("Start!")
 
 func connect_signals():
 	if player_ship and projectile_manager:
@@ -54,3 +55,4 @@ func check_collisions():
 
 func on_player_hit():
 	game_manager.decrease_lives()
+
