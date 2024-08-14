@@ -18,6 +18,7 @@ func _ready():
 	$FireRateTimer.wait_time = fire_rate
 	$FireRateTimer.one_shot = true
 	add_to_group("player")
+	connect("area_entered", Callable(self, "_on_area_entered"))
 
 func _process(delta):
 	if OS.get_name() == "Android":
@@ -91,3 +92,15 @@ func _on_touch_controls_shoot_pressed():
 
 func _on_touch_controls_shoot_released():
 	pass # Replace with function body.
+
+func _on_area_entered(area):
+ # Check if the area has the entity_type property
+	if "entity_type" in area:
+		# Check if the entering area is a player projectile
+		if area.entity_type == 1:  # 0 represents Player
+			hit()
+			area.queue_free()
+	# Fallback to the group check if entity_type is not available
+	elif area.is_in_group("enemy_projectiles"):
+		hit()
+		area.queue_free()
