@@ -1,0 +1,87 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5hgu8miuosw1"]
+
+[ext_resource type="Texture2D" uid="uid://dxknqjnomrrsd" path="res://sprites/background/spaceBackground.png" id="1_nr4qn"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_sn0oe"]
+[ext_resource type="Script" path="res://scripts/ParallaxBackground.gd" id="2_8ny5r"]
+[ext_resource type="Script" path="res://scripts/PlayerShip.gd" id="2_j87uu"]
+[ext_resource type="Texture2D" uid="uid://dtxgoaeoif7ek" path="res://sprites/ships/Ship2.png" id="3_tava3"]
+[ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="4_2g6xc"]
+[ext_resource type="Script" path="res://scripts/ProjectileManager.gd" id="6_pgne7"]
+[ext_resource type="PackedScene" uid="uid://0tyuu68wgr76" path="res://scenes/PlayerProjectile.tscn" id="7_mci6s"]
+[ext_resource type="PackedScene" uid="uid://d15p556mdugx1" path="res://scenes/EnemyProjectile.tscn" id="8_47bam"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="9_ftg8q"]
+[ext_resource type="PackedScene" uid="uid://c2rm7d33qgc8x" path="res://scenes/TouchControls.tscn" id="11_qhn0b"]
+[ext_resource type="AudioStream" uid="uid://4727a1mc6l6u" path="res://audio/GalacticOdyssey.mp3" id="11_sgxqh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ax3i"]
+radius = 18.0
+height = 84.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy68i"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sn0oe")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_8ny5r")
+scroll_speed = 50
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-1, 2)
+scale = Vector2(0.356445, 0.700521)
+texture = ExtResource("1_nr4qn")
+centered = false
+
+[node name="PlayerShip" type="Area2D" parent="."]
+position = Vector2(620, 523)
+script = ExtResource("2_j87uu")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerShip"]
+rotation = 1.5708
+texture = ExtResource("3_tava3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip"]
+shape = SubResource("CapsuleShape2D_5ax3i")
+
+[node name="Muzzle" type="Marker2D" parent="PlayerShip"]
+
+[node name="FireRateTimer" type="Timer" parent="PlayerShip"]
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("4_2g6xc")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+
+[node name="ProjectileManager" type="Node2D" parent="."]
+script = ExtResource("6_pgne7")
+
+[node name="PlayerProjectile" parent="ProjectileManager" instance=ExtResource("7_mci6s")]
+
+[node name="EnemyProjectile" parent="ProjectileManager" instance=ExtResource("8_47bam")]
+
+[node name="PowerUpManager" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("9_ftg8q")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TouchControls" parent="UI" instance=ExtResource("11_qhn0b")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_sgxqh")
+autoplay = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(370, 133)
+scale = Vector2(37.9327, -13.75)
+shape = SubResource("RectangleShape2D_wy68i")
+
+[connection signal="timeout" from="PlayerShip/FireRateTimer" to="PlayerShip" method="_on_FireRateTimer_timeout"]
+[connection signal="shoot_pressed" from="UI/TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_pressed"]
+[connection signal="shoot_released" from="UI/TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_released"]
