@@ -5,7 +5,6 @@ extends Control
 @onready var label_score_val3 = $TextureRect/ScoreLabelVal3
 @onready var label_score_val4 = $TextureRect/ScoreLabelVal4
 
-const MainMenuScene = preload("res://scenes/Main.tscn")
 
 func _ready():
 	display_top_scores()
@@ -33,4 +32,4 @@ func update_scores():
 
 
 func _on_texture_button_pressed():
-	get_tree().change_scene_to_packed(MainMenuScene)
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

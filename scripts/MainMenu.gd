@@ -1,7 +1,6 @@
 extends Control
 
 const MainScene = preload("res://scenes/Main.tscn")
-const ScoresScene = preload("res://scenes/Scores.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,4 +22,4 @@ func _on_exit_button_pressed():
 
 func _on_record_button_pressed():
 	# Change to the Scores
-	get_tree().change_scene_to_packed(ScoresScene)
+	get_tree().change_scene_to_file("res://scenes/Scores.tscn")
