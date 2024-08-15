@@ -68,5 +68,10 @@ func _on_replay_button_button_down():
 
 func _on_timer_level_timeout():
 	next_level()
-	timer_level.wait_time = 60
+	timer_level.wait_time = 30
 	timer_level.one_shot = true
+	timer_level.start()
+
+
+func _on_main_menu_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

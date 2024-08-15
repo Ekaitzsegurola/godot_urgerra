@@ -199,6 +199,7 @@ scale = Vector2(37.9327, -13.75)
 shape = SubResource("RectangleShape2D_wy68i")
 
 [connection signal="timeout" from="PlayerShip/FireRateTimer" to="PlayerShip" method="_on_FireRateTimer_timeout"]
+[connection signal="pressed" from="UI/MessagePopup/MainMenuButton" to="GameManager" method="_on_main_menu_button_pressed"]
 [connection signal="button_down" from="UI/MessagePopup/ReplayButton" to="GameManager" method="_on_replay_button_button_down"]
 [connection signal="timeout" from="UI/LevelTimer" to="UI" method="_on_level_timer_timeout"]
 [connection signal="shoot_pressed" from="TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_pressed"]
