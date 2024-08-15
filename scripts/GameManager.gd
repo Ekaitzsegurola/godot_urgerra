@@ -1,5 +1,7 @@
 extends Node
 
+@onready var timer_level = $TimerLevel
+
 signal score_changed(new_score)
 signal lives_changed(new_lives)
 signal level_changed(new_level)
@@ -9,6 +11,7 @@ var score = 0
 var lives = 3
 var current_level = 1
 var total_levels = 10
+
 
 func _ready():
 	GlobalGameManager.set_bgm("Main", 1)
@@ -61,3 +64,9 @@ func game_won():
 func _on_replay_button_button_down():
 	GlobalGameManager.save_score(score)
 	GlobalGameManager.reload_scene()
+
+
+func _on_timer_level_timeout():
+	next_level()
+	timer_level.wait_time = 60
+	timer_level.one_shot = true

@@ -6,6 +6,10 @@ extends CanvasLayer
 @onready var message_popup = $MessagePopup
 @onready var label_win = $MessagePopup/LabelWin
 @onready var label_lose = $MessagePopup/LabelLose
+@onready var message_popup_level = $MessagePopupLevel
+@onready var label_level = $MessagePopupLevel/LabelLevel
+
+@onready var level_timer = $LevelTimer 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,3 +44,18 @@ func _on_game_manager_play_finished(win_lose):
 		label_lose.visible = true
 	elif win_lose == 1: 
 		label_win.visible = true
+
+
+func _on_game_manager_level_changed(new_level):
+	 # Update the label text
+	label_level.text = "Level " + str(new_level)
+	
+	# Show the message popup
+	message_popup_level.visible = true
+	
+	# Start the timer
+	level_timer.start(1.0)  # 1 second duration
+	
+func _on_level_timer_timeout():
+	# Hide the message popup after the timer expires
+	message_popup_level.visible = false

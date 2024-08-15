@@ -3,7 +3,8 @@ extends Node2D
 @onready var player_ship = $PlayerShip
 @onready var projectile_manager = $ProjectileManager
 @onready var enemy_spawner = $EnemySpawner
-@onready var game_manager = $GameManager
+
+@onready var game_manager = get_node("/root/Main/GameManager")
 
 func _ready():
 	connect_signals()

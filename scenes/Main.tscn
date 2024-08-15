@@ -157,14 +157,39 @@ texture_normal = ExtResource("15_df8rh")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="MessagePopupLevel" type="TextureRect" parent="UI"]
+visible = false
+offset_left = 78.0
+offset_top = 314.0
+offset_right = 657.0
+offset_bottom = 606.0
+texture = ExtResource("13_acq2o")
+
+[node name="LabelLevel" type="Label" parent="UI/MessagePopupLevel"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 52.0
+offset_right = 522.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 48
+text = "LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelTimer" type="Timer" parent="UI"]
+
 [node name="TouchControls" parent="." instance=ExtResource("11_qhn0b")]
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("9_ftg8q")
 
+[node name="TimerLevel" type="Timer" parent="GameManager"]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_sgxqh")
-autoplay = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -175,9 +200,12 @@ shape = SubResource("RectangleShape2D_wy68i")
 
 [connection signal="timeout" from="PlayerShip/FireRateTimer" to="PlayerShip" method="_on_FireRateTimer_timeout"]
 [connection signal="button_down" from="UI/MessagePopup/ReplayButton" to="GameManager" method="_on_replay_button_button_down"]
+[connection signal="timeout" from="UI/LevelTimer" to="UI" method="_on_level_timer_timeout"]
 [connection signal="shoot_pressed" from="TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_pressed"]
 [connection signal="shoot_released" from="TouchControls" to="PlayerShip" method="_on_touch_controls_shoot_released"]
+[connection signal="level_changed" from="GameManager" to="UI" method="_on_game_manager_level_changed"]
 [connection signal="level_changed" from="GameManager" to="UI/LabelLevel" method="_on_game_manager_level_changed"]
 [connection signal="lives_changed" from="GameManager" to="UI" method="_on_game_manager_lives_changed"]
 [connection signal="play_finished" from="GameManager" to="UI" method="_on_game_manager_play_finished"]
 [connection signal="score_changed" from="GameManager" to="UI" method="_on_game_manager_score_changed"]
+[connection signal="timeout" from="GameManager/TimerLevel" to="GameManager" method="_on_timer_level_timeout"]

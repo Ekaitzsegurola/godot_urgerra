@@ -1,7 +1,8 @@
 extends Node
 
 const main_ost = preload("res://audio/Galactic Adventure.mp3")
-const level1_ost = preload("res://audio/GalacticOdyssey.mp3")
+const level2_ost = preload("res://audio/GalacticOdyssey.mp3")
+const level1_ost = preload("res://audio/Galactic Voyage.mp3")
 
 @onready var bgm_stream_player = $BMGStreamPlayer
 
