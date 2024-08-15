@@ -104,3 +104,7 @@ func _on_area_entered(area):
 	elif area.is_in_group("enemy_projectiles"):
 		hit()
 		area.queue_free()
+	#collision with enemy spaceship
+	elif area.is_in_group("enemies"):
+		hit()
+		area.queue_free()
