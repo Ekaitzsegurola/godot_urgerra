@@ -8,6 +8,7 @@ radius = 2.0
 height = 10.0
 
 [node name="EnemyProjectile" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_e5enm")
 entity_type = 1
 

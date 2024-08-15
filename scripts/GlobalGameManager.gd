@@ -1,5 +1,9 @@
 extends Node
 
+const main_ost = preload("res://audio/Galactic Adventure.mp3")
+const level1_ost = preload("res://audio/GalacticOdyssey.mp3")
+
+@onready var bgm_stream_player = $BMGStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,6 +14,28 @@ func _ready():
 func _process(delta):
 	pass
 
+
+func set_bgm(scene_name: String, level: int = 0):
+	var bgm_to_play
+
+	match scene_name:
+		"Scores":
+			bgm_to_play = main_ost
+		"MainMenu":
+			bgm_to_play = main_ost
+		"Main":
+			if level == 1:
+				bgm_to_play = level1_ost
+			else:
+				bgm_to_play = level1_ost  # Default to main OST for other levels
+		_:
+			bgm_to_play = main_ost  # Default to main OST for unknown scenes
+
+	if bgm_stream_player.stream != bgm_to_play:
+		bgm_stream_player.stop()
+		bgm_stream_player.stream = bgm_to_play
+		bgm_stream_player.play()
+		
 const SAVE_FILE = "user://scores.save"
 var scores = []
 

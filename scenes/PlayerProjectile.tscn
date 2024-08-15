@@ -8,6 +8,7 @@ radius = 4.0
 height = 14.0
 
 [node name="PlayerProjectile" type="Area2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_b7qwp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -11,6 +11,7 @@ var current_level = 1
 var total_levels = 10
 
 func _ready():
+	GlobalGameManager.set_bgm("Main", 1)
 	start_game()
 
 func start_game():

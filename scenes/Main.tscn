@@ -43,6 +43,7 @@ centered = false
 
 [node name="PlayerShip" type="Area2D" parent="."]
 position = Vector2(380, 735)
+scale = Vector2(2, 2)
 script = ExtResource("2_j87uu")
 metadata/_edit_group_ = true
 
