@@ -10,6 +10,7 @@ var screen_size
 var can_fire = true
 var touch_position = Vector2.ZERO
 var is_touching = false
+var is_invulnerable = false
 
 @onready var ui_layer: CanvasLayer = get_node("/root/Main/TouchControls")
 
@@ -64,10 +65,13 @@ func _on_FireRateTimer_timeout():
 	can_fire = true
 
 func hit():
-	player_hit.emit()
-	$Sprite2D.modulate = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	$Sprite2D.modulate = Color.WHITE
+	if not is_invulnerable:
+		is_invulnerable = true
+		player_hit.emit()
+		$Sprite2D.modulate = Color.RED
+		await get_tree().create_timer(0.1).timeout
+		$Sprite2D.modulate = Color.WHITE
+		is_invulnerable = false
 
 func _unhandled_input(event):
 	if OS.get_name() == "Android":

@@ -4,6 +4,7 @@ const main_ost = preload("res://audio/Galactic Adventure.mp3")
 const level2_ost = preload("res://audio/GalacticOdyssey.mp3")
 const level1_ost = preload("res://audio/Galactic Voyage.mp3")
 const level4_ost = preload("res://audio/Galactic Voyage_2.mp3")
+const level7_ost = preload("res://audio/Galactic Fight.mp3")
 
 @onready var bgm_stream_player = $BMGStreamPlayer
 
@@ -30,6 +31,8 @@ func set_bgm(scene_name: String, level: int = 0):
 				bgm_to_play = level1_ost
 			elif 4 <= level and level <= 6:
 				bgm_to_play = level4_ost  
+			elif 7:
+				bgm_to_play = level7_ost  
 			else:
 				bgm_to_play = level1_ost  # Default to main OST for other levels
 		_:

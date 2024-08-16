@@ -10,7 +10,7 @@ signal play_finished(win_lose)
 var score = 0
 var lives = 3
 var current_level = 1
-var total_levels = 10
+var total_levels = 7
 
 
 func _ready():
@@ -20,7 +20,7 @@ func _ready():
 func start_game():
 	score = 0
 	lives = 3
-	current_level = 1
+	current_level = 6
 	emit_signal("score_changed", score)
 	emit_signal("lives_changed", lives)
 	emit_signal("level_changed", current_level)
@@ -54,24 +54,32 @@ func next_level():
 func game_over():
 	play_finished.emit(0)
 	print("Game Over!")
+	get_tree().paused = true
 	# Here you would show the game over screen and handle restarting
 
 func game_won():
 	play_finished.emit(1)
 	print("Congratulations! You've completed all levels!")
+	GlobalGameManager.bgm_stream_player.Stop()
 	# Here you would show the victory screen
 
 func _on_replay_button_button_down():
+	get_tree().paused = false
 	GlobalGameManager.save_score(score)
 	GlobalGameManager.reload_scene()
 
 
 func _on_timer_level_timeout():
-	next_level()
-	timer_level.wait_time = 30
-	timer_level.one_shot = true
-	timer_level.start()
+	if current_level != 7:
+		print("Level")
+		print(current_level)
+		next_level()
+		timer_level.wait_time = 30
+		timer_level.one_shot = true
+		timer_level.start()
 
 
 func _on_main_menu_button_pressed():
+	get_tree().paused = false
+	GlobalGameManager.save_score(score)
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

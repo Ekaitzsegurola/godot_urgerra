@@ -107,6 +107,7 @@ offset_bottom = 1011.0
 value = 100.0
 
 [node name="MessagePopup" type="TextureRect" parent="UI"]
+process_mode = 2
 visible = false
 offset_left = 78.0
 offset_top = 314.0

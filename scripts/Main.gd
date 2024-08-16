@@ -44,11 +44,13 @@ func check_collisions():
 			for enemy in enemies:
 				if projectile.overlaps_body(enemy):
 					enemy.hit()
+					projectile.explode()
 					projectile.queue_free()
 					break
 		elif projectile.direction == Vector2.DOWN:
 			if projectile.overlaps_body(player_ship):
 				player_ship.hit()
+				projectile.explode()
 				projectile.queue_free()
 
 	for enemy in enemies:

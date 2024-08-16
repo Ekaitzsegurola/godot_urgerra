@@ -10,6 +10,7 @@ signal enemy_hit
 @export var life_points = 1
 @export var is_horizontal = false
 @export var move_right = false
+@export var is_boss = false
 
 @onready var game_manager = get_node("/root/Main/GameManager")
 @onready var screen_size = get_viewport_rect().size
@@ -31,6 +32,15 @@ func _process(delta):
 			position.x -= speed * delta
 			if position.x < -50:
 				queue_free()
+	elif is_boss:
+		if move_right:
+			position.x += speed * delta
+			if position.x > screen_size.x + 50:
+				move_right = false
+		else:
+			position.x -= speed * delta
+			if position.x < -50:
+				move_right = true
 	else:
 		position.y += speed * delta
 		if position.y > screen_size.y + 50:
@@ -39,6 +49,7 @@ func _process(delta):
 func hit():
 	life_points -= 1
 	if life_points <= 0:
+		game_manager.next_level()
 		destroy()
 	else:
 		$Sprite2D.modulate = Color.RED
@@ -66,9 +77,11 @@ func _on_area_entered(area):
 	if "entity_type" in area:
 		if area.entity_type == 0:  # 0 represents Player
 			hit()
+			area.explode()
 			area.queue_free()
 	elif area.is_in_group("player_projectiles"):
 		hit()
+		area.explode()
 		area.queue_free()
 		
 func _on_level_changed(value):
