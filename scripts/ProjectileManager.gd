@@ -14,6 +14,7 @@ func spawn_player_projectile(pos):
 
 func spawn_enemy_projectile(pos):
 	var projectile = enemy_projectile_scene.instantiate()
+	print("New projectile")
 	projectile.position = pos
 	projectile.direction = Vector2.DOWN
 	add_child(projectile)

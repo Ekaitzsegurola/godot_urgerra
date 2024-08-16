@@ -66,6 +66,7 @@ Project Link: https://github.com/Ekaitzsegurola/godot_urgerra
 Resources:
 
 https://free-game-assets.itch.io/free-space-shooter-game-user-interface
+
 https://free-game-assets.itch.io/free-enemy-spaceship-2d-sprites-pixel-art
 
 ---

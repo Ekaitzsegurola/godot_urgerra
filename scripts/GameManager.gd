@@ -46,6 +46,11 @@ func decrease_lives():
 func next_level():
 	current_level += 1
 	emit_signal("level_changed", current_level)
+	if current_level == 4:
+		GlobalGameManager.set_bgm("Main", current_level)
+	if current_level == 7:
+		GlobalGameManager.set_bgm("Main", current_level)
+	
 	if current_level > total_levels:
 		game_won()
 	else:
@@ -60,7 +65,8 @@ func game_over():
 func game_won():
 	play_finished.emit(1)
 	print("Congratulations! You've completed all levels!")
-	GlobalGameManager.bgm_stream_player.Stop()
+	GlobalGameManager.bgm_stream_player.stop()
+	get_tree().paused = true
 	# Here you would show the victory screen
 
 func _on_replay_button_button_down():

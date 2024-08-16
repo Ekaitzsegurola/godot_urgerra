@@ -49,7 +49,8 @@ func _process(delta):
 func hit():
 	life_points -= 1
 	if life_points <= 0:
-		game_manager.next_level()
+		if is_boss:
+			game_manager.next_level()
 		destroy()
 	else:
 		$Sprite2D.modulate = Color.RED
@@ -71,6 +72,7 @@ func destroy():
 	call_deferred("queue_free")
 
 func _on_shoot_timer_timeout():
+	print("Shoot")
 	enemy_shoot.emit(global_position)
 
 func _on_area_entered(area):
