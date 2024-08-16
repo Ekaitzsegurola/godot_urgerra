@@ -13,6 +13,7 @@ var is_touching = false
 var is_invulnerable = false
 
 @onready var ui_layer: CanvasLayer = get_node("/root/Main/TouchControls")
+@onready var game_manager = get_node("/root/Main/GameManager")
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -111,4 +112,9 @@ func _on_area_entered(area):
 	#collision with enemy spaceship
 	elif area.is_in_group("enemies"):
 		hit()
+		area.queue_free()
+	elif area.is_in_group("powerups"):
+		if "power_up" in area:
+			if area.power_up == 0:
+				game_manager.increase_lives(1)
 		area.queue_free()

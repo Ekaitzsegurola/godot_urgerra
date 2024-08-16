@@ -20,7 +20,7 @@ func _ready():
 func start_game():
 	score = 0
 	lives = 3
-	current_level = 7
+	current_level = 1
 	emit_signal("score_changed", score)
 	emit_signal("lives_changed", lives)
 	emit_signal("level_changed", current_level)
@@ -36,6 +36,10 @@ func load_level(level_number):
 func increase_score(points):
 	score += points
 	emit_signal("score_changed", score)
+	
+func increase_lives(amount):
+	lives = clamp(lives + amount, 0, 10)
+	emit_signal("lives_changed", lives)
 
 func decrease_lives():
 	lives -= 1
