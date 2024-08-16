@@ -20,7 +20,7 @@ func _ready():
 func start_game():
 	score = 0
 	lives = 3
-	current_level = 6
+	current_level = 7
 	emit_signal("score_changed", score)
 	emit_signal("lives_changed", lives)
 	emit_signal("level_changed", current_level)

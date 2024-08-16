@@ -47,14 +47,15 @@ func _on_game_manager_play_finished(win_lose):
 
 
 func _on_game_manager_level_changed(new_level):
-	 # Update the label text
-	label_level.text = "Level " + str(new_level)
-	
-	# Show the message popup
-	message_popup_level.visible = true
-	
-	# Start the timer
-	level_timer.start(1.0)  # 1 second duration
+	if new_level < 8:
+		# Update the label text
+		label_level.text = "Level " + str(new_level)
+		
+		# Show the message popup
+		message_popup_level.visible = true
+		
+		# Start the timer
+		level_timer.start(1.0)  # 1 second duration
 	
 func _on_level_timer_timeout():
 	# Hide the message popup after the timer expires
