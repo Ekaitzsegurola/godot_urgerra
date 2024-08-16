@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byple7g4egae2"
+path="res://.godot/imported/Galactic Fight_2.mp3-8e49fe79e447d26f058e9d616103991e.mp3str"
+
+[deps]
+
+source_file="res://audio/Galactic Fight_2.mp3"
+dest_files=["res://.godot/imported/Galactic Fight_2.mp3-8e49fe79e447d26f058e9d616103991e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

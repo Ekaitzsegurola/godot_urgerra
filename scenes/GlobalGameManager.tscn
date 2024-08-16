@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://br3jkx6dwlo28"]
+
+[ext_resource type="Script" path="res://scripts/GlobalGameManager.gd" id="1_kgici"]
+
+[node name="GlobalGameManager" type="Node"]
+script = ExtResource("1_kgici")
+
+[node name="BMGStreamPlayer" type="AudioStreamPlayer2D" parent="."]

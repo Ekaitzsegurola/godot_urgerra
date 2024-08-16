@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://vk5rypdtc8uv"]
+
+[ext_resource type="Script" path="res://scripts/PowerUpLife.gd" id="1_3mjqf"]
+[ext_resource type="Texture2D" uid="uid://cl813lnxdgm0h" path="res://sprites/power_ups/heart.png" id="1_ob3jy"]
+[ext_resource type="Texture2D" uid="uid://bcinui7oq45h4" path="res://sprites/power_ups/heart_1.png" id="2_d5x78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lccef"]
+size = Vector2(4.2, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk67m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ob3jy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d5x78")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PowerUpLife" type="Area2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_3mjqf")
+
+[node name="TimerLifeTime" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0999996, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_lccef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_bk67m")
+speed_scale = 4.0
+
+[connection signal="timeout" from="TimerLifeTime" to="." method="_on_timer_life_time_timeout"]

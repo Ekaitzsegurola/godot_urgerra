@@ -1,0 +1,95 @@
+[gd_scene load_steps=16 format=3 uid="uid://bgnda6dt344ir"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_rflfa"]
+[ext_resource type="Texture2D" uid="uid://d0ljurjjn5xmd" path="res://sprites/ships/Ship1.png" id="2_0crip"]
+[ext_resource type="Texture2D" uid="uid://dubxswuh63d84" path="res://sprites/explosion/Explosion2_1.png" id="3_a7ndx"]
+[ext_resource type="Texture2D" uid="uid://cw7cdypfs0t5o" path="res://sprites/explosion/Explosion2_2.png" id="4_w1it2"]
+[ext_resource type="Texture2D" uid="uid://dpkarohbyxcdm" path="res://sprites/explosion/Explosion2_3.png" id="5_gis0w"]
+[ext_resource type="Texture2D" uid="uid://bj7j0w24k1se8" path="res://sprites/explosion/Explosion2_4.png" id="6_fsmhj"]
+[ext_resource type="Texture2D" uid="uid://bh6yiduvdg0bs" path="res://sprites/explosion/Explosion2_5.png" id="7_r3f3a"]
+[ext_resource type="Texture2D" uid="uid://domkt8c0omq22" path="res://sprites/explosion/Explosion2_6.png" id="8_gewub"]
+[ext_resource type="Texture2D" uid="uid://btsnqjag6iu0w" path="res://sprites/explosion/Explosion2_7.png" id="9_ev2i1"]
+[ext_resource type="Texture2D" uid="uid://dlcqifhkw7uit" path="res://sprites/explosion/Explosion2_8.png" id="10_v3vuv"]
+[ext_resource type="Texture2D" uid="uid://dydbjsa3d3olx" path="res://sprites/explosion/Explosion2_9.png" id="11_i44lp"]
+[ext_resource type="Texture2D" uid="uid://okfps5xxcv0k" path="res://sprites/explosion/Explosion2_10.png" id="12_pjsqi"]
+[ext_resource type="Texture2D" uid="uid://cxmg2pmflu73u" path="res://sprites/explosion/Explosion2_11.png" id="13_ir2rr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhv4y"]
+radius = 11.0
+height = 82.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tiysa"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a7ndx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w1it2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gis0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fsmhj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r3f3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gewub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ev2i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v3vuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i44lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pjsqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ir2rr")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Area2D"]
+position = Vector2(166, 298)
+scale = Vector2(4, 2)
+script = ExtResource("1_rflfa")
+speed = 250
+points = 15
+shoot_interval = 200.0
+life_points = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.875, -0.5)
+rotation = 4.71239
+scale = Vector2(1.23438, 0.730469)
+texture = ExtResource("2_0crip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mhv4y")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_tiysa")
+animation = &"explode"
+speed_scale = 4.0
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://p3u3yejxg8xt"
+path="res://.godot/imported/Galactic Voyage.mp3-69071210d031aba24cff5e478ed97fc6.mp3str"
+
+[deps]
+
+source_file="res://audio/Galactic Voyage.mp3"
+dest_files=["res://.godot/imported/Galactic Voyage.mp3-69071210d031aba24cff5e478ed97fc6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctt2d3rp48mqr"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_lddx7"]
+[ext_resource type="Texture2D" uid="uid://d0ljurjjn5xmd" path="res://sprites/ships/Ship1.png" id="2_msl6x"]
+[ext_resource type="Texture2D" uid="uid://dubxswuh63d84" path="res://sprites/explosion/Explosion2_1.png" id="3_7hsia"]
+[ext_resource type="Texture2D" uid="uid://cw7cdypfs0t5o" path="res://sprites/explosion/Explosion2_2.png" id="4_gga5d"]
+[ext_resource type="Texture2D" uid="uid://dpkarohbyxcdm" path="res://sprites/explosion/Explosion2_3.png" id="5_1fj13"]
+[ext_resource type="Texture2D" uid="uid://bj7j0w24k1se8" path="res://sprites/explosion/Explosion2_4.png" id="6_vlsvs"]
+[ext_resource type="Texture2D" uid="uid://bh6yiduvdg0bs" path="res://sprites/explosion/Explosion2_5.png" id="7_vayts"]
+[ext_resource type="Texture2D" uid="uid://domkt8c0omq22" path="res://sprites/explosion/Explosion2_6.png" id="8_ws48k"]
+[ext_resource type="Texture2D" uid="uid://btsnqjag6iu0w" path="res://sprites/explosion/Explosion2_7.png" id="9_gn223"]
+[ext_resource type="Texture2D" uid="uid://dlcqifhkw7uit" path="res://sprites/explosion/Explosion2_8.png" id="10_y2w0p"]
+[ext_resource type="Texture2D" uid="uid://dydbjsa3d3olx" path="res://sprites/explosion/Explosion2_9.png" id="11_no448"]
+[ext_resource type="Texture2D" uid="uid://okfps5xxcv0k" path="res://sprites/explosion/Explosion2_10.png" id="12_8jju4"]
+[ext_resource type="Texture2D" uid="uid://cxmg2pmflu73u" path="res://sprites/explosion/Explosion2_11.png" id="13_lj7j6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mhv4y"]
+radius = 11.0
+height = 82.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77sns"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7hsia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gga5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1fj13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vlsvs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vayts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ws48k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gn223")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_y2w0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_no448")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8jju4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lj7j6")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Area2D"]
+position = Vector2(166, 298)
+scale = Vector2(4, 2)
+script = ExtResource("1_lddx7")
+speed = 250
+points = 35
+shoot_interval = 200.0
+life_points = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.231373, 0.364706, 0.960784, 1)
+position = Vector2(0.875, -0.5)
+rotation = 4.71239
+scale = Vector2(1.23438, 0.730469)
+texture = ExtResource("2_msl6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_mhv4y")
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_77sns")
+animation = &"explode"
+speed_scale = 4.0
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
