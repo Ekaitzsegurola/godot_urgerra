@@ -2,6 +2,7 @@ extends Node2D
 
 var power_up_life = preload("res://scenes/PowerUpLife.tscn")
 var power_up_rocket = preload("res://scenes/PowerUpRocket.tscn")
+var power_up_laser = preload("res://scenes/PowerUpLaser.tscn")
 @onready var spawn_area = get_node("/root/Main/AreaPowerUps")
 
 func _ready():
@@ -17,8 +18,16 @@ func spawn_power_up():
 	if not spawn_area:
 		return
 
-	# Randomly choose between life and rocket power-up
-	var power_up_scene = power_up_life if randf() < 0.5 else power_up_rocket
+# Randomly choose between life, rocket, and laser power-up
+	var random_value = randf()
+	var power_up_scene
+	if random_value < 0.33:
+		power_up_scene = power_up_life
+	elif random_value < 0.66:
+		power_up_scene = power_up_rocket
+	else:
+		power_up_scene = power_up_laser
+
 	var power_up_spawned = power_up_scene.instantiate()
 
 	# Get the spawn area's position and size

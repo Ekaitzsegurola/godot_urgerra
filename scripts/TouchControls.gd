@@ -11,6 +11,7 @@ signal powerup_released(version)
 @onready var powerup_button = $PowerUpButton
 
 const ROCKET_TEXTURE_PATH = "res://sprites/ui/Powerup_Rocket.png"
+const LASER_TEXTURE_PATH = "res://sprites/ui/Powerup_Laser.png"
 
 func _ready():
 	#if OS.get_name() != "Android":
@@ -34,7 +35,13 @@ func _on_shoot_released():
 	emit_signal("shoot_released")
 	
 func _on_powerup_pressed():
-	var version = 1 if powerup_button.texture_normal.resource_path == ROCKET_TEXTURE_PATH else 0
+	var version = 0
+	
+	if powerup_button.texture_normal.resource_path == ROCKET_TEXTURE_PATH:
+		version = 1
+	elif powerup_button.texture_normal.resource_path == LASER_TEXTURE_PATH:
+		version = 2
+	
 	emit_signal("powerup_pressed", version)
 	powerup_button.texture_normal = null
 
