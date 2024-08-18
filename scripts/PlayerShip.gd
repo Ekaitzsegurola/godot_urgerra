@@ -15,6 +15,8 @@ var is_invulnerable = false
 @onready var ui_layer: CanvasLayer = get_node("/root/Main/TouchControls")
 @onready var game_manager = get_node("/root/Main/GameManager")
 
+@onready var touch_control = get_node("/root/Main/TouchControls")
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	$FireRateTimer.wait_time = fire_rate
@@ -117,4 +119,6 @@ func _on_area_entered(area):
 		if "power_up" in area:
 			if area.power_up == 0:
 				game_manager.increase_lives(1)
+			if area.power_up == 1:
+				touch_control.set_powerup_button_texture("res://sprites/ui/Powerup_Rocket.png")
 		area.queue_free()

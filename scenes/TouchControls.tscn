@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2rm7d33qgc8x"]
+[gd_scene load_steps=3 format=3 uid="uid://c2rm7d33qgc8x"]
 
 [ext_resource type="Script" path="res://scripts/TouchControls.gd" id="1_fvgua"]
 [ext_resource type="Texture2D" uid="uid://bdmdidotlbbhc" path="res://sprites/ui/crosshair.svg" id="1_j0hr1"]
-[ext_resource type="Texture2D" uid="uid://b5ulto8ucnebo" path="res://sprites/ui/Powerup_Rocket.png" id="3_w62s2"]
 
 [node name="TouchControls" type="CanvasLayer"]
 script = ExtResource("1_fvgua")
@@ -20,7 +19,7 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="ShootButtonPowerUp" type="TextureButton" parent="."]
+[node name="PowerUpButton" type="TextureButton" parent="."]
 anchors_preset = -1
 anchor_left = -0.0555556
 anchor_bottom = 0.0324074
@@ -28,7 +27,6 @@ offset_left = 211.0
 offset_top = 896.0
 offset_right = 325.0
 offset_bottom = 1014.0
-texture_normal = ExtResource("3_w62s2")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
