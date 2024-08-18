@@ -1,6 +1,7 @@
 extends Area2D
 
 signal projectile_fired(position)
+signal rocket_fired(position)
 signal player_hit
 
 @export var speed = 300
@@ -23,6 +24,8 @@ func _ready():
 	$FireRateTimer.one_shot = true
 	add_to_group("player")
 	connect("area_entered", Callable(self, "_on_area_entered"))
+	touch_control.connect("powerup_pressed", _on_powerup_pressed)
+	touch_control.connect("powerup_released", _on_powerup_released)
 
 func _process(delta):
 	if OS.get_name() == "Android":
@@ -63,6 +66,11 @@ func fire_projectile():
 	can_fire = false
 	projectile_fired.emit($Muzzle.global_position)
 	$FireRateTimer.start()
+
+func fire_rocket():
+	can_fire = false
+	rocket_fired.emit($Muzzle.global_position)
+	$FireRateTimer.start()
 	
 func _on_FireRateTimer_timeout():
 	can_fire = true
@@ -99,6 +107,24 @@ func _on_touch_controls_shoot_pressed():
 
 func _on_touch_controls_shoot_released():
 	pass # Replace with function body.
+
+func _on_powerup_pressed(version):
+	if version == 1:
+		# Handle rocket powerup press
+		print("Rocket shooted")
+		if can_fire:
+			fire_rocket()
+	else:
+		# Handle other powerup press
+		pass
+
+func _on_powerup_released(version):
+	if version == 1:
+		# Handle rocket powerup release
+		pass
+	else:
+		# Handle other powerup release
+		pass
 
 func _on_area_entered(area):
  # Check if the area has the entity_type property

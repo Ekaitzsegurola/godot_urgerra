@@ -18,6 +18,8 @@ func connect_signals():
 			player_ship.projectile_fired.connect(projectile_manager.spawn_player_projectile)
 		if not player_ship.player_hit.is_connected(on_player_hit):
 			player_ship.player_hit.connect(on_player_hit)
+		if not player_ship.rocket_fired.is_connected(projectile_manager.spawn_player_rocket):
+			player_ship.rocket_fired.connect(projectile_manager.spawn_player_rocket)
 	
 	# Connect enemy signals
 	if not enemy_spawner.child_entered_tree.is_connected(connect_enemy_signals):

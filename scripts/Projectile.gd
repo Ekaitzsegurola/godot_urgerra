@@ -3,6 +3,7 @@ extends Area2D
 @export var speed = 500
 @export var direction = Vector2.UP
 @export_enum("Player", "Enemy") var entity_type: int = 0
+@export var hit_damage = 1
 
 func _ready():
 	if entity_type == 0:

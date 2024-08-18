@@ -2,12 +2,19 @@ extends Node2D
 
 var player_projectile_scene = preload("res://scenes/PlayerProjectile.tscn")
 var enemy_projectile_scene = preload("res://scenes/EnemyProjectile.tscn")
+var player_rocket_scene = preload("res://scenes/PlayerRocket.tscn")
 
 var player_projectiles = []
 var enemy_projectiles = []
 
 func spawn_player_projectile(pos):
 	var projectile = player_projectile_scene.instantiate()
+	projectile.position = pos
+	projectile.direction = Vector2.UP
+	add_child(projectile)
+	
+func spawn_player_rocket(pos):
+	var projectile = player_rocket_scene.instantiate()
 	projectile.position = pos
 	projectile.direction = Vector2.UP
 	add_child(projectile)

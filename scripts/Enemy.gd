@@ -67,8 +67,8 @@ func _process(delta):
 		if position.y > screen_size.y + 50:
 			queue_free()
 
-func hit():
-	life_points -= 1
+func hit(damage):
+	life_points -= damage
 	if life_points <= 0:
 		if is_boss:
 			game_manager.next_level()
@@ -99,11 +99,11 @@ func _on_shoot_timer_timeout():
 func _on_area_entered(area):
 	if "entity_type" in area:
 		if area.entity_type == 0:  # 0 represents Player
-			hit()
+			hit(area.hit_damage)
 			area.explode()
 			area.queue_free()
 	elif area.is_in_group("player_projectiles"):
-		hit()
+		hit(area.hit_damage)
 		area.explode()
 		area.queue_free()
 		
