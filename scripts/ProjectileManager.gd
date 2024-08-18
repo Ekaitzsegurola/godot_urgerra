@@ -18,6 +18,20 @@ func spawn_player_rocket(pos):
 	projectile.position = pos
 	projectile.direction = Vector2.UP
 	add_child(projectile)
+	
+func spawn_player_projectile_three(pos):
+	var projectile = player_projectile_scene.instantiate()
+	projectile.position = pos
+	projectile.direction = Vector2.UP
+	add_child(projectile)
+	var projectile2 = player_projectile_scene.instantiate()
+	projectile2.position = pos
+	projectile2.direction = Vector2.LEFT
+	add_child(projectile2)
+	var projectile3 = player_projectile_scene.instantiate()
+	projectile3.position = pos
+	projectile3.direction = Vector2.RIGHT
+	add_child(projectile3)
 
 func spawn_enemy_projectile(pos):
 	var projectile = enemy_projectile_scene.instantiate()

@@ -2,6 +2,7 @@ extends Area2D
 
 signal projectile_fired(position)
 signal rocket_fired(position)
+signal projectile_fired_three(position)
 signal player_hit
 
 @export var speed = 300
@@ -95,6 +96,11 @@ func fire_rocket():
 	rocket_fired.emit($Muzzle.global_position)
 	$FireRateTimer.start()
 	
+func fire_projectile_three():
+	can_fire = false
+	projectile_fired_three.emit($Muzzle.global_position)
+	$FireRateTimer.start()
+	
 func activate_laser():
 	if not laser_active and laser_cooldown_timer <= 0:
 		laser_active = true
@@ -166,6 +172,8 @@ func _on_powerup_pressed(version):
 			fire_rocket()
 	elif version == 2:
 		activate_laser()
+	elif version == 3:
+		fire_projectile_three()
 	else:
 		# Handle other powerup press
 		pass
@@ -203,4 +211,6 @@ func _on_area_entered(area):
 				touch_control.set_powerup_button_texture("res://sprites/ui/Powerup_Rocket.png")
 			if area.power_up == 2:
 				touch_control.set_powerup_button_texture("res://sprites/ui/Powerup_Laser.png")
+			if area.power_up == 3:
+				touch_control.set_powerup_button_texture("res://sprites/ui/Powerup_ThreeBullet.png")
 		area.queue_free()
