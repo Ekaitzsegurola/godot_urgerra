@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqey364x46cwk"]
+
+[ext_resource type="Script" path="res://scripts/PowerUpRocket.gd" id="1_24lqf"]
+[ext_resource type="Texture2D" uid="uid://cgaobmhh0412u" path="res://sprites/power_ups/rocket.png" id="2_0oh2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lccef"]
+size = Vector2(4.2, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk67m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0oh2r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PowerUpRocket" type="Area2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_24lqf")
+
+[node name="TimerLifeTime" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0999996, 0)
+shape = SubResource("RectangleShape2D_lccef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_bk67m")
+speed_scale = 4.0
+
+[connection signal="timeout" from="TimerLifeTime" to="." method="_on_timer_life_time_timeout"]

@@ -1,0 +1,203 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="urguerra2.tursock.com"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="24"
+10        android:targetSdkVersion="33" />
+11
+12    <supports-screens
+12-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:9:5-13:40
+13        android:largeScreens="true"
+13-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:12:9-36
+14        android:normalScreens="true"
+14-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:11:9-37
+15        android:smallScreens="true"
+15-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:10:9-36
+16        android:xlargeScreens="true" />
+16-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:13:9-37
+17
+18    <uses-feature
+18-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:15:5-17:35
+19        android:glEsVersion="0x00030000"
+19-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:16:9-41
+20        android:required="true" />
+20-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:17:9-32
+21
+22    <uses-permission android:name="android.permission.INTERNET" />
+22-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:11:5-67
+22-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:11:22-64
+23
+24    <uses-feature
+24-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:12:5-132
+25        android:name="android.hardware.vulkan.level"
+25-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:12:40-84
+26        android:required="false"
+26-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:12:85-109
+27        android:version="1" />
+27-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:12:110-129
+28    <uses-feature
+28-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:13:5-140
+29        android:name="android.hardware.vulkan.version"
+29-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:13:40-86
+30        android:required="true"
+30-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:13:87-110
+31        android:version="0x400003" />
+31-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\src\debug\AndroidManifest.xml:13:111-137
+32
+33    <application
+33-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:19:5-59:19
+34        android:allowBackup="false"
+34-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:21:9-36
+35        android:appCategory="game"
+35-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:23:9-35
+36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+36-->[androidx.core:core:1.2.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\9bcb1a65f5938aad264f4d73e9a06f28\transformed\core-1.2.0\AndroidManifest.xml:24:18-86
+37        android:debuggable="true"
+38        android:extractNativeLibs="false"
+39        android:hasFragileUserData="false"
+39-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:25:9-43
+40        android:icon="@mipmap/icon"
+40-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:22:9-36
+41        android:isGame="true"
+41-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:24:9-30
+42        android:label="@string/godot_project_name_string"
+42-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:20:9-58
+43        android:requestLegacyExternalStorage="false" >
+43-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:26:9-53
+44        <activity
+44-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:40:9-57:20
+45            android:name="com.godot.game.GodotApp"
+45-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:41:13-37
+46            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+46-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:48:13-141
+47            android:excludeFromRecents="false"
+47-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:45:13-47
+48            android:exported="true"
+48-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:46:13-36
+49            android:label="@string/godot_project_name_string"
+49-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:42:13-62
+50            android:launchMode="singleInstancePerTask"
+50-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:44:13-55
+51            android:resizeableActivity="true"
+51-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:49:13-47
+52            android:screenOrientation="portrait"
+52-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:47:13-50
+53            android:theme="@style/GodotAppSplashTheme" >
+53-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:43:13-55
+54            <intent-filter>
+54-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:52:13-56:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:53:17-69
+55-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:53:25-66
+56
+57                <category android:name="android.intent.category.DEFAULT" />
+57-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:54:17-76
+57-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:54:27-73
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:55:17-77
+58-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:55:27-74
+59            </intent-filter>
+60        </activity>
+61        <!-- Records the version of the Godot editor used for building -->
+62        <meta-data
+63            android:name="org.godotengine.editor.version"
+64            android:value="4.2.1.stable.mono" />
+65        <meta-data
+65-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:34:3-35:42
+66            android:name="com.google.android.gms.games.APP_ID"
+66-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:34:14-64
+67            android:value="@string/app_id" />
+67-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:35:9-39
+68        <meta-data
+68-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:37:3-38:63
+69            android:name="com.google.android.gms.version"
+69-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:37:14-59
+70            android:value="@integer/google_play_services_version" /> <!-- Records the version of the Godot library -->
+70-->C:\Users\SOCKAND\Documents\GODOT\Urgerra\android\build\AndroidManifest.xml:38:8-61
+71        <meta-data
+71-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:14:9-16:44
+72            android:name="org.godotengine.library.version"
+72-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:15:13-59
+73            android:value="4.2.1.stable" />
+73-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:13-41
+74
+75        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+75-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:9-80
+75-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:18-77
+76
+77        <activity
+77-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:20:9-24:75
+78            android:name="org.godotengine.godot.utils.ProcessPhoenix"
+78-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:21:13-70
+79            android:exported="false"
+79-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:22:13-37
+80            android:process=":phoenix"
+80-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:23:13-39
+81            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+81-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:24:13-72
+82
+83        <provider
+83-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:26:9-34:20
+84            android:name="androidx.core.content.FileProvider"
+84-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:27:13-62
+85            android:authorities="urguerra2.tursock.com.fileprovider"
+85-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:28:13-64
+86            android:exported="false"
+86-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:29:13-37
+87            android:grantUriPermissions="true" >
+87-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:30:13-47
+88            <meta-data
+88-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:31:13-33:64
+89                android:name="android.support.FILE_PROVIDER_PATHS"
+89-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:32:17-67
+90                android:resource="@xml/godot_provider_paths" />
+90-->[godot-lib.template_debug.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\590e173cc0c656d19ab073090e01d0ec\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:33:17-61
+91        </provider>
+92
+93        <meta-data
+93-->[GodotPlayGamesServices.release.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\c69513f4b07d35f8ab9a751b434a02ed\transformed\jetified-GodotPlayGamesServices.release\AndroidManifest.xml:10:9-12:74
+94            android:name="org.godotengine.plugin.v2.GodotPlayGamesServices"
+94-->[GodotPlayGamesServices.release.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\c69513f4b07d35f8ab9a751b434a02ed\transformed\jetified-GodotPlayGamesServices.release\AndroidManifest.xml:11:13-76
+95            android:value="io.cgisca.godot.gpgs.PlayGameServicesGodot" />
+95-->[GodotPlayGamesServices.release.aar] C:\Users\SOCKAND\.gradle\caches\transforms-3\c69513f4b07d35f8ab9a751b434a02ed\transformed\jetified-GodotPlayGamesServices.release\AndroidManifest.xml:12:13-71
+96
+97        <activity
+97-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:23:9-27:75
+98            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+98-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:24:13-93
+99            android:excludeFromRecents="true"
+99-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:25:13-46
+100            android:exported="false"
+100-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:26:13-37
+101            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+101-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:27:13-72
+102        <!--
+103            Service handling Google Sign-In user revocation. For apps that do not integrate with
+104            Google Sign-In, this service will never be started.
+105        -->
+106        <service
+106-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:33:9-37:51
+107            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+107-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:34:13-89
+108            android:exported="true"
+108-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:35:13-36
+109            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+109-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:36:13-107
+110            android:visibleToInstantApps="true" />
+110-->[com.google.android.gms:play-services-auth:20.6.0] C:\Users\SOCKAND\.gradle\caches\transforms-3\adf81468ebcfd9734164fcde723eda60\transformed\jetified-play-services-auth-20.6.0\AndroidManifest.xml:37:13-48
+111
+112        <activity
+112-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\SOCKAND\.gradle\caches\transforms-3\8284d2e3ec0a5f773fa207c648985d7c\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+113            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+113-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\SOCKAND\.gradle\caches\transforms-3\8284d2e3ec0a5f773fa207c648985d7c\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+114            android:exported="false"
+114-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\SOCKAND\.gradle\caches\transforms-3\8284d2e3ec0a5f773fa207c648985d7c\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+115            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+115-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\SOCKAND\.gradle\caches\transforms-3\8284d2e3ec0a5f773fa207c648985d7c\transformed\jetified-play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+116    </application>
+117
+118</manifest>
