@@ -8,8 +8,8 @@ This is a simple spaceship game developed using Godot 4.2 and GDScript. The game
 - Shooting mechanics
 - Enemy spawning system
 - Scrolling background
-- 10 planned levels (in development)
-- Boss battles (planned)
+- 7 levels 
+- Boss battles 
 
 ## Current Status
 The game is in active development. Basic functionality such as player movement and enemy spawning is implemented, but many features are still work in progress.
